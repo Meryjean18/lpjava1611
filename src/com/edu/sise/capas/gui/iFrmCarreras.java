@@ -8,7 +8,6 @@ package com.edu.sise.capas.gui;
 import com.edu.sise.capas.entity.Carrera;
 import com.edu.sise.capas.logic.CarreraLogic;
 import java.io.ByteArrayOutputStream;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;

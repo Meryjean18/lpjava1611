@@ -79,7 +79,7 @@ public class MySqlProvinciaDAO implements IProvinciaDAO{
             ps = cn.prepareStatement(UPDATE);
             int i = 1;
             ps.setString(i++,o.getNombre());
-            ps.setInt(i++, o.getId_prov());
+            ps.setInt(i++,o.getId_prov());
                         
             if(ps.executeUpdate()==0)
                 throw new DAOException("No se pudo modificar el registro!!!");
@@ -143,6 +143,12 @@ public class MySqlProvinciaDAO implements IProvinciaDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    private Provincia getRS(ResultSet rs) throws SQLException {
+        return new Provincia(
+                rs.getInt("id_prov"),
+                rs.getString("nombre")
+            );
+    }
 
     @Override
     public double calcularBonificiacion() throws DAOException {
@@ -282,12 +288,7 @@ public class MySqlProvinciaDAO implements IProvinciaDAO{
         return cantidad;
     }
 
-    private Provincia getRS(ResultSet rs) throws SQLException {
-        return new Provincia(
-                rs.getInt("id_prov"),
-                rs.getString("nombre")
-            );
-    }
+    
 
        
 }
